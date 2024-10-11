@@ -30,6 +30,10 @@ docker volume ls
 ```
 
 ## Question 1
+I am very sure there is a much better way to answer `Question 1`
+but tried to stick to not using all the resources
+available
+
 Please see the file **top_customers.sql** in the root folder.
 I also added a comment or 2.
 
@@ -42,7 +46,3 @@ I would research best practices for performance.
 Other than that I would look at optimising calculations maybe performed on every row,
 potentially look at using a different type of join to reduce rows,
 or possibly running an `EXPLAIN` on the query
-
-I am very sure there is a much better way to answer `Question 1` 
-but tried to stick to not using all the resources
-available
