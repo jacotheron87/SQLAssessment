@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mysql:latest           # Use the latest official MySQL image from Docker Hub
+    container_name: mysql_db      # Container name (can be changed)
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pw  # Root password for MySQL
+      MYSQL_DATABASE: mysql_db             # Name of the default database to create
+      MYSQL_USER: docker_user               # Non-root user to create
+      MYSQL_PASSWORD: user_pw       # Password for the non-root user
+    ports:
+      - "3306:3306"                # Map port 3306 of the container to port 3306 on the host
+    volumes:
+      - mysql_data:/var/lib/mysql      # Persistent storage for MySQL data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # Mount the init.sql file
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql  # Mount the seed.sql script to insert initial data
+volumes:
+  mysql_data:
